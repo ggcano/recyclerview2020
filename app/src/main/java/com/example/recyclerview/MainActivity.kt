@@ -2,26 +2,28 @@ package com.example.recyclerview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.recyclerview.databinding.ActivityMainBinding
 import com.example.recyclerview.model.Animals
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.item_list.*
+
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
         setuprRecyclerView()
     }
 
     private fun setuprRecyclerView() {
-        my_recycler_view.layoutManager = LinearLayoutManager(this)
-        my_recycler_view.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
+        binding.myRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.myRecyclerView.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
         val listAnimals = listOf(
             Animals(
                 "Perro",
@@ -46,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                 "https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/595112135bafe8e5023c98f0/cobaya-cesped_0.jpg",
                 true
             ))
-            my_recycler_view.adapter = RecyclerAdapter (this,listAnimals)
+            binding.myRecyclerView.adapter = RecyclerAdapter (this,listAnimals)
 
     }
 }

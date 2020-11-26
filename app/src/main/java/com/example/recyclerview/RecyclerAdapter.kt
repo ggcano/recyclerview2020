@@ -33,14 +33,13 @@ class RecyclerAdapter(val context: Context, private val animalList: List<Animals
         override fun bind(item: Animals, position: Int) {
 
 
-      //  itemView.profile_image = item.image
             itemView.txt_name_animal.text = item.name
             Glide.with(context).load(item.image).into(itemView.profile_image)
 
                 if (item.isDomestic) {
-                    itemView.txt_is_visible.text = "Domestico"
+                    itemView.txt_is_visible.text = context.getString(R.string.domestico)
                 } else {
-                    itemView.txt_is_visible.text = "No Domestico"
+                    itemView.txt_is_visible.text = context.getString(R.string.no_domestico)
                 }
         }
     }

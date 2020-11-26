@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">recyclerview</string>
+    <string name="domestico">Domestico</string>
+    <string name="no_domestico">No Domestico</string>
 </resources>
