@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private fun setuprRecyclerView() {
         binding.myRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.myRecyclerView.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
-        val listAnimals = listOf(
+        val listAnimals = mutableListOf(
             Animals(
                 "Perro",
                 "https://dam.ngenespanol.com/wp-content/uploads/2019/06/mirada-perros.png",
@@ -51,4 +51,6 @@ class MainActivity : AppCompatActivity() {
             binding.myRecyclerView.adapter = RecyclerAdapter (this,listAnimals)
 
     }
+
+
 }
