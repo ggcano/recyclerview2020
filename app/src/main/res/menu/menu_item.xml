@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- "Mark Favorite", should appear as action button if possible -->
+    <item
+        android:id="@+id/account_button"
+        android:state_selected="true"
+        android:icon="@drawable/ic_baseline_account_box_24"
+        android:orderInCategory="100"
+        android:actionLayout="@layout/toolbar_main"
+        android:title="@string/account" />
+
+
+</menu>

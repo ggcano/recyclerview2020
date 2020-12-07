@@ -1,3 +1,7 @@
 package com.example.recyclerview.model
 
-data class Animals (val name: String, val image: String, val isDomestic: Boolean )
+import java.io.Serializable
+
+data class Animals (val name: String,
+                    val image: String,
+                    val isDomestic: Boolean ) : Serializable
