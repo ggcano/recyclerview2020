@@ -33,14 +33,21 @@ class MainActivity : AppCompatActivity(), Serializable {
             "Rinoceronte",
             "https://www.lavanguardia.com/r/GODO/LV/p7/WebSite/2020/03/20/Recortada/img_emartinezb_20200320-175132_imagenes_lv_terceros_uicn-rino_negro_2-krh-U474275244584CBF-992x558@LaVanguardia-Web.jpg",
             false
-        ), Animals(
+        ),
+        Animals(
             "Tigre",
             "https://vignette.wikia.nocookie.net/reinoanimalia/images/5/58/Tigre_de_bengala_wiki.png/revision/latest?cb=20130303105615&path-prefix=es",
             false
-        ), Animals(
+        ),
+        Animals(
             "Cobaya",
             "https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/595112135bafe8e5023c98f0/cobaya-cesped_0.jpg",
             true
+        ),
+        Animals(
+            "Elefante",
+            "https://img.europapress.es/fotoweb/fotonoticia_20191215152504_1024.jpg",
+            false
         )
     )
 
@@ -53,7 +60,7 @@ class MainActivity : AppCompatActivity(), Serializable {
 
         setSupportActionBar(findViewById(R.id.toolbar))
         setupRecyclerView()
-        tuputamadre(this, listAnimals)
+        passListToActivity(this, listAnimals)
     }
 
     private fun setupRecyclerView() {
@@ -70,17 +77,17 @@ class MainActivity : AppCompatActivity(), Serializable {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_item,menu)
+        menuInflater.inflate(R.menu.menu_item, menu)
         return true
 
     }
 
-    private fun  tuputamadre (context: Context, list: ArrayList<Animals>){
-        binding.include.buttonGo.setOnClickListener {
+    private fun passListToActivity(context: Context, list: ArrayList<Animals>) {
+        binding.buttonGo.setOnClickListener {
             val intent = Intent(context, MainActivity2::class.java)
             intent.putExtra(EXTRA_MESSAGE, list)
             startActivity(intent)
-            }
-
         }
+
     }
+}

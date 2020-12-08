@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">recyclerview</string>
+    <string name="app_name">Animales</string>
     <string name="domestico">Domestico</string>
     <string name="no_domestico">No Domestico</string>
     <string name="account">Setting</string>
+    <string name="todo">TODO</string>
+    <string name="domestic_animals">Solo Animales Domesticos</string>
 </resources>

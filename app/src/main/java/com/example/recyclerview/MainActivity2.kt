@@ -1,12 +1,10 @@
 package com.example.recyclerview
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recyclerview.databinding.ActivityMain2Binding
-
 import com.example.recyclerview.model.Animals
 import java.io.Serializable
 
@@ -23,12 +21,22 @@ class MainActivity2 : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         val animals: Serializable? = intent.getSerializableExtra(EXTRA_MESSAGE)
-        setuprRecyclerView2(animals as ArrayList<Animals>)
+        setupRecyclerView2(animals as ArrayList<Animals>)
 
+        val toolbar = binding.toolbarMain2.toolbar
+        setSupportActionBar(toolbar)
+
+
+        //actionbar
+        setSupportActionBar(toolbar).apply {
+            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+            supportActionBar!!.setDisplayShowHomeEnabled(true)
+            supportActionBar!!.title = getString(R.string.domestic_animals)
+        }
 
     }
 
-    private fun setuprRecyclerView2(listilla: MutableList<Animals>) {
+    private fun setupRecyclerView2(list: MutableList<Animals>) {
         binding.recyclerViewMain2.layoutManager = LinearLayoutManager(this)
         binding.recyclerViewMain2.addItemDecoration(
             DividerItemDecoration(
@@ -36,14 +44,15 @@ class MainActivity2 : AppCompatActivity() {
                 DividerItemDecoration.VERTICAL
             )
         )
-
-
+        //Filtrado animales domesticos
             binding.recyclerViewMain2.adapter = RecyclerAdapter(this,
-                listilla.filter { it.isDomestic } as MutableList<Animals>)
-
-
-
+                list.filter { it.isDomestic } as MutableList<Animals>)
         }
 
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 }
 

@@ -34,7 +34,8 @@ class RecyclerAdapter(val context: Context, private val animalList: MutableList<
 
     private fun onDelete(pos: Int) {
         animalList.removeAt(pos)
-        notifyItemChanged(pos)
+        notifyDataSetChanged()
+        // Los Toast mejor en el Activity
         Toast.makeText(context, "Eliminado", Toast.LENGTH_SHORT).show()
     }
 
